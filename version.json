@@ -1,6 +1,6 @@
 {
-  "latest_version": "1.0.1",
+  "latest_version": "1.0.2",
   "minimum_supported_version": "1.0.0",
-  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.0.1/life-os-1.0.1.apk",
-  "changelog": "Update 1.0.1"
+  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.0.2/life-os-1.0.2.apk",
+  "changelog": "Update 1.0.1 to 1.0.2 Changes made working the fetch from mobile and download and install"
 }
