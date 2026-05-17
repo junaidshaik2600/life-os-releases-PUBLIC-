@@ -1,7 +1,7 @@
 {
-  "latest_version": "1.0.3",
+  "latest_version": "1.0.2",
   "minimum_supported_version": "1.0.0",
-  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.0.3/life-os-1.0.3.apk",
-  "apk_sha256": "57db8928d2e11eadc51ef61b7648958690cc544a52b556e01f75f32857c09c45",
-  "changelog": "Phase 1 branding, release signing, and OTA improvements."
+  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.0.2/life-os-1.0.2.apk",
+  "apk_sha256": "0e0df2dee5188724ee65498d31f35bcb31efec9780ca4f764858e30ebb1e5e91",
+  "changelog": "Build 21: Phase 1 branding and release foundation."
 }
