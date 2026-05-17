@@ -1,11 +1,7 @@
 ﻿# Life OS changelog
 
-## 1.0.3
+## 1.0.2 (build 21)
 
-Phase 1 branding, release signing, and OTA improvements.
-
-## 1.0.2
-
-Code changes so command see all the thing not change the version all the time
+Build 21: Phase 1 branding and release foundation.
 
 
