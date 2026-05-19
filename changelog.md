@@ -2,13 +2,31 @@
 
 ## 1.0.4 (build 23) — Reactive UX & cohesion
 
-- Live dashboard chip counts (todos, reminders)
-- Search refreshes when data changes; analytics uses live streams
-- Diary detail and recovery update without manual refresh
-- Unified refresh path; widgets update after todo/reminder edits
-- OTA install UX from 1.0.3 included
+**Life OS 1.0.4 (build 23)** — polish release: screens stay in sync after edits. Recommended for anyone on 1.0.3 or earlier.
 
-**APK:** `life-os-1.0.4.apk` · **Tag:** `v1.0.4`
+### Reactive surfaces
+
+- **Dashboard** — Live chip counts for open todos and upcoming reminders.
+- **Search** — Refreshes when core life data changes in the app.
+- **Analytics** — Live dashboard bundle streams (no stale one-shot loads).
+- **Diary** — Detail and recovery bin update without leaving the screen or manual refresh.
+- **Reminders** — Live tab counts; calmer empty states.
+
+### Unified refresh & widgets
+
+- Central refresh path after todos, reminders, backup restore, and related edits.
+- Android home-screen widgets pick up changes via debounced snapshot publish.
+
+### Copy
+
+- Calmer, consistent empty-state and reminder copy across the app.
+
+### Carried from 1.0.3
+
+- OTA install UX (finish only after real install, APK cleanup).
+- Manifest reliability and Phase 1 branding/OTA from 1.0.2.
+
+**APK:** `life-os-1.0.4.apk` · **Tag:** `v1.0.4` · **SHA256:** `2377280b7d5ec73ff99509c1be817ad9db561854ed4c6600e3e080c2f69b7a4e`
 
 ## 1.0.2 (build 21) — Phase 1: branding & release foundation
 
