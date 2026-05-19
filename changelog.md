@@ -1,5 +1,15 @@
 ﻿# Life OS changelog
 
+## 1.0.4 (build 23) — Reactive UX & cohesion
+
+- Live dashboard chip counts (todos, reminders)
+- Search refreshes when data changes; analytics uses live streams
+- Diary detail and recovery update without manual refresh
+- Unified refresh path; widgets update after todo/reminder edits
+- OTA install UX from 1.0.3 included
+
+**APK:** `life-os-1.0.4.apk` · **Tag:** `v1.0.4`
+
 ## 1.0.2 (build 21) — Phase 1: branding & release foundation
 
 **Life OS 1.0.2 (build 21)** completes Phase 1: production identity, release discipline, and trust layers—without new cloud, AI, or major modules. Aimed at premium-alpha testers and sideload/OTA installs.
