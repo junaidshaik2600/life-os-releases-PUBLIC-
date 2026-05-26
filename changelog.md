@@ -1,104 +1,235 @@
-﻿# Life OS changelog
+# Changelog
 
-## 1.0.10 (build 50) — Calendar widget & stability
+All notable changes to this project are documented in this file.
 
-**Life OS 1.0.10 (build 50)** — polished diary calendar widget, overflow fix, one app task for widget launches. OTA from 1.0.9.
+Release discipline: bump `**pubspec.yaml**` only for app version; run `.\scripts\release.ps1` for public `version.json` + changelog; update this file per release. See [docs/15-version-changelog-and-ota-tracking.md](docs/15-version-changelog-and-ota-tracking.md).
 
-### Widgets
-- Diary calendar: gradient style, dynamic 5/6-week grid, today highlight, glance line, icon-only legend.
-- No overflow on home screen; scales when resized.
+## [1.0.10] - 2026-05-26 (build 50)
 
-### Android
-- Widget taps bring one Life OS task forward (no duplicate Recents cards).
+### feat
 
-### Carried from 1.0.9
-- Watchlist & free time polish, structured share, backup restore with app lock.
+- **Widgets:** Polished diary calendar widget (gradient, dynamic 5/6-week grid, today highlight, glance line, icon-only legend).
 
-**APK:** `life-os-1.0.10.apk` · **Tag:** `v1.0.10` · **SHA256:** `ebb8c363e5f6176bb3b09a517caa47a7c984f8e664690c60c5cc4114c12215d7`
+### fix
 
-## 1.0.9 (build 48) — Stabilization & polish
+- **Widgets:** Calendar layout overflow fixed; scale-to-fit for resize.
+- **Android:** Widget taps use single app task (`singleTask`) — no duplicate Life OS cards in Recents.
 
-**Life OS 1.0.9 (build 48)** — watchlist & free time polish, diary calendar widget, structured share, stability fixes.
+## [1.0.9] - 2026-05-26 (build 48)
 
-### Watchlist & Free time
-- Thumbnails and status chips (Started / Stuck / Done).
-- Calmer YouTube open flow; readable Free time link labels.
-- Quick navigation between watchlist and free time.
+Stabilization: watchlist & free time polish, structured share, diary calendar widget, backup/restore with app lock.
 
-### Share & widgets
-- Structured share destination sheet; better YouTube titles.
-- New **Diary calendar** home widget (month + entry dots).
+### feat
 
-### Fixes
-- Backup restore with app lock; safer refresh and sheet lifecycle.
+- **Watchlist:** Thumbnails, calmer YouTube open flow, colored status chips (Started / Stuck / Done), Free time shelf sync.
+- **Free time:** Readable link subtitles; navigation to watchlist.
+- **Share:** Structured destination sheet, oEmbed titles, Android finish-after-save.
+- **Widgets:** Diary calendar home widget (month grid, entry dots).
 
-**APK:** `life-os-1.0.9.apk` · **Tag:** `v1.0.9`
+### fix
 
-## 1.0.4 (build 23) — Reactive UX & cohesion
+- **Backup:** Restore no longer blocked by app lock resume.
+- **Stability:** Safer provider refresh, todo sheet lifecycle, share/restore flows.
 
-**Life OS 1.0.4 (build 23)** — polish release: screens stay in sync after edits. Recommended for anyone on 1.0.3 or earlier.
+## [1.0.9] - 2026-05-19 (build 32)
 
-### Reactive surfaces
+### fix
 
-- **Dashboard** — Live chip counts for open todos and upcoming reminders.
-- **Search** — Refreshes when core life data changes in the app.
-- **Analytics** — Live dashboard bundle streams (no stale one-shot loads).
-- **Diary** — Detail and recovery bin update without leaving the screen or manual refresh.
-- **Reminders** — Live tab counts; calmer empty states.
+- **Widgets:** Reverted native `RemoteViews` string/button pipeline; home-screen cards are now **Flutter-rendered** via `home_widget` (AppTheme surfaces, same copy as before). Android only shows the PNG + tap-to-open.
 
-### Unified refresh & widgets
+## [1.0.9] - 2026-05-19 (build 31)
 
-- Central refresh path after todos, reminders, backup restore, and related edits.
-- Android home-screen widgets pick up changes via debounced snapshot publish.
+Widget reliability, settings system shortcuts, and calmer dark surfaces.
 
-### Copy
+### fix
 
-- Calmer, consistent empty-state and reminder copy across the app.
+- **Widgets:** Safe `updateAppWidget` fallback to minimal layout + logcat (`LifeOsWidget` tag); hardened `refreshFromSnapshotArgs`; no drawable backgrounds on widget action TextViews; placeholder when JSON missing; `reminders_future` channel field; publish no longer blocked while diary streak loads; dashboard sync on load.
+- **Todos:** Priority chips show `P1 · Highly important` with stronger fills; menu color dots; top-3 border uses priority accent.
+- **Notifications:** `ic_stat_lifeos` shape drawable for reliable scheduling icon.
+- **UI:** Life Pulse hero and Reliable reminders card use lighter `surfaceContainerHigh` / tuned `primaryContainer` tokens.
+- **Reminders:** `rescheduleAllPending()` on bootstrap/resume for background delivery.
 
-### Carried from 1.0.3
+### feat
 
-- OTA install UX (finish only after real install, APK cleanup).
-- Manifest reliability and Phase 1 branding/OTA from 1.0.2.
+- **Settings:** One-tap Android shortcuts for notifications, exact alarms, battery, and app info (`life_os/system_settings`).
 
-**APK:** `life-os-1.0.4.apk` · **Tag:** `v1.0.4` · **SHA256:** `2377280b7d5ec73ff99509c1be817ad9db561854ed4c6600e3e080c2f69b7a4e`
+### docs
 
-## 1.0.2 (build 21) — Phase 1: branding & release foundation
+- Widget troubleshooting and RemoteViews constraints in [19-widgets-living-surfaces.md](docs/19-widgets-living-surfaces.md).
 
-**Life OS 1.0.2 (build 21)** completes Phase 1: production identity, release discipline, and trust layers—without new cloud, AI, or major modules. Aimed at premium-alpha testers and sideload/OTA installs.
+## [1.0.7] - 2026-05-19 (build 26)
 
-### Branding & identity
+Surface coherence — living widgets, todo priority clarity, watchlist filters. No cloud, AI, or architecture rewrite.
 
-- Unified naming: **Life OS** (app), **Life Pulse** (home dashboard), **Life OS Premium** (subscription tier).
-- Refreshed launcher icons (adaptive + monochrome) from the canonical brand asset.
-- Consistent notification icon for reminders, update checks, and APK download progress.
-- Splash and Settings About copy aligned with the brand.
+### feat
 
-### In-app updates (OTA)
+- **Widgets:** Richer snapshot fields (diary mood/preview, Life Pulse insight line, people touch, P0 todo prefix); reminder widget uses `reminders_attention` so due-today items never show “nothing upcoming”; widget actions (todo done, reminder done/+15m snooze, diary write).
+- **Todos:** P0–P5 priority bands with legacy normalization; execution status chips (not started / started / stuck).
+- **Watchlist:** “Other” genre opens inline custom field; multi-filter sheet (genre, progress, labels, priority tiers); scan-friendly label chips with icons/colors.
 
-- Check for updates from Settings via the public `version.json` manifest.
-- Background APK download (foreground service) with progress in the dialog and notification.
-- Optional SHA-256 verification after download when the manifest includes `apk_sha256`.
-- Clear install flow and guidance to fully close and reopen the app after install.
+### fix
 
-### Premium trust & billing
+- **Trust:** Reminder widget empty state aligned with open + due-today reminders (`ReminderService.snapshotForWidgets()`).
 
-- Premium features gated through a single capability system with calm lock UI.
-- Gating in Life Pulse memory, Analytics, and rich home-screen widget fields.
-- Billing lifecycle: restore purchases, expiry handling, offline grace.
-- Promo / tester codes hidden in release builds.
+### docs
 
-### Product polish
+- [Living widget surfaces](docs/19-widgets-living-surfaces.md); index link from [docs/INDEX.md](docs/INDEX.md).
 
-- Search and navigation fixes; removal of dead or non-functional UI in places.
-- Clearer premium copy across Settings.
+## [1.0.4] - 2026-05-19 (build 23)
 
-### What did not change
+Reactive UX and cohesion — screens stay in sync after edits without manual refresh. No new modules, cloud, or AI.
 
-- No cloud sync, AI, or new major modules.
-- Encrypted backups still store attachment metadata, not full media file bytes.
+### feat
 
-### Install / update
+- **Dashboard:** Live chip counts for open todos and upcoming reminders (`dashboardBundleProvider`).
+- **Search:** Refreshes when core life data changes (`ref.listen` on `lifePulseModelProvider`).
+- **Analytics:** Uses live dashboard bundle streams instead of one-shot loads.
+- **Diary:** Detail screen watches entry by id; recovery bin uses a reactive stream; editor invalidates detail on save.
+- **Reminders:** Tab counts and calmer empty states via shared `AppCopy`.
 
-- **Fresh install:** GitHub Release **v1.0.2** → `life-os-1.0.2.apk`
-- **From 1.0.1 or older:** Settings → Check for updates → Download → Install → fully close app → reopen
-- **Already on 1.0.2:** OTA uses semver only; reinstall APK manually for this rebuild (build 21)
+### fix
+
+- **Unified refresh:** `life_data_refresh.dart` centralizes provider invalidation after todos, reminders, backup restore, and related edits; `app_refresh.dart` re-exports for callers.
+- **Home widgets:** Debounced `scheduleWidgetSnapshot()` after data changes so Android widgets pick up todo/reminder edits.
+- **Copy:** Expanded calm, consistent strings in `app_copy.dart` (empty states, reminders, recovery).
+
+### chore
+
+- Release **1.0.4** for OTA from **1.0.3**; `minimum_supported_version` in manifest set to `1.0.3`.
+- Carries **1.0.3** OTA install UX (deferred finish dialog, APK purge on success).
+
+## [1.0.3] - 2026-05-17 (build 22)
+
+### fix
+
+- **OTA install UX:** “Update installed” only after system install completes; no early finish dialog; auto-delete downloaded APK (app + Downloads copy).
+- **OTA manifest:** User-Agent, cache-bust, legacy URL fallback, clearer load errors.
+
+### chore
+
+- Release **1.0.3** for OTA testing from 1.0.2 / 1.0.1.
+
+## [1.0.2] - 2026-05-16 (build 21)
+
+Phase 1 completion: branding, release foundation, OTA hardening, premium trust.
+
+### feat
+
+- **Branding:** canonical icon at `assets/branding/app_icon.png`; `flutter_launcher_icons` (adaptive + monochrome); `app_branding.dart` for Life OS / Life Pulse / Life OS Premium; `ic_stat_lifeos` for notifications.
+- **OTA:** native foreground APK download, progress UI, optional `apk_sha256` integrity check after download.
+- **Premium trust:** `PremiumGate` / capability gating (Life Pulse memory, Analytics, widget rich fields); billing restore, expiry reconciliation, release-hidden promo codes.
+
+### chore
+
+- **Release signing:** `android/key.properties.example` + conditional release `signingConfig` in Gradle (debug fallback when no keystore).
+- **Docs:** branding, signing/repos, Play internal-testing prep (`docs/16`–`18`).
+
+### fix
+
+- Search/navigation coherence; removed dead todo UI; premium copy consistency.
+
+## [1.0.0] - 2026-05-14
+
+### feat
+
+- **In-app APK updates** (Settings → Tools → Check updates): cached manifest (faster repeat checks), download-once per version, **Install** when APK already on device, progress notification, copy to **Download/Life OS/updates/**, install via **FileProvider** + unknown-sources guidance.
+
+### chore
+
+- **Version 1.0.0** — single source of truth: `pubspec.yaml` `version:` only. Runtime reads semver via `**package_info_plus`** (`AppVersion`, `packageInfoProvider`); removed duplicate `AppConfig.currentVersion`. Android continues to use Flutter-injected `versionName` / `versionCode` from the same line.
+
+## [0.4.0] - 2026-05-14
+
+### feat
+
+- **Google Play Billing** (`in_app_purchase`): product query, purchase stream, buy, restore; centralized product config in `AppConfig` + `billing_products.dart`.
+- **Entitlements**: store/lifetime flags, **offline grace** window (`billingOfflineGraceDays`), **local trial** start from Premium (`billingDefaultTrialDays`), beta program flag; `EntitlementService` plans extended (trial, beta, admin, lifetime).
+- **Premium UX**: Settings **Life OS Pro** card, **Premium & billing** hub (`premium_billing_screen.dart`), `PremiumBadge` and `LockedFeaturePreview` widgets; restore purchases wired to billing.
+- **Privacy-safe telemetry**: capped local ring buffer for purchase/billing events (`purchase_telemetry.dart`) — no raw tokens.
+
+### docs
+
+- `**docs/12-premium-billing-and-play-console.md`**: code map, where to paste IDs, Console navigation, testing and publish checklist. **INDEX** and **10-centralized-configuration** updated for billing paths.
+
+## [0.3.0] - 2026-05-12
+
+### Release notes
+
+This release focuses on **reliable backup and restore**, **Android widgets**, **shell privacy** (so file pickers no longer dispose Settings mid-flow), and a **broader encrypted backup payload** (diary, people, places, todos, reminders, tags, links, work, watchlist, food, media attachment *rows*, and more). **0.3.0** is suitable for day-to-day builds; two areas remain intentionally incomplete:
+
+- **Backup and restore:** Encrypted `.enc` archives are portable when you use a **password**; device-key backups remain same-install only. Payload v2 restores many tables and rebuilds diary FTS after import. **Binary media files** (photos, banners, attachment files on disk) are **not** bundled inside the archive—only **metadata paths** are restored, so attachments may show as missing until you re-add files or re-export from a device that still has them. A future milestone may add optional media bundling or clearer UX around broken paths.
+- **Media attachments:** Row-level backup/restore is included; **file bytes** and cross-device path migration are **not** solved in this version.
+
+### feat
+
+- Full-shell **privacy curtain** on `paused`/`hidden` while unlocked: keeps the main `PageView` (and Settings) **mounted** so restore, pickers, and other async flows complete instead of dying on `context.mounted`.
+- Android `**FLAG_SECURE`** toggle via `life_os/privacy` method channel for recents/screenshot hardening when the curtain is active.
+- `**rootShellTabRequestProvider**` and post-restore **“Open Diary”** navigation.
+- Restore **preview + confirm** dialog (decrypted counts, export time) before writing the database.
+- `**flutter_secure_storage`**-backed device backup key (optional path); password exports tagged `key_kind` in envelope.
+- `**post_restore_refresh**`: invalidates repository and service providers after restore (keeps the same open SQLite connection so restored data stays visible).
+- Pull-to-refresh on dashboard, diary, people, library hub, todos; `PageView` uses non-swipeable physics for stable bottom nav.
+- Life pulse / intelligence / search stack additions and widget snapshot publishing refinements (see lib and docs).
+
+### fix
+
+- **Backup restore (V3):** integrity check now uses the **raw `data.json` bytes** in the ZIP (matches export); avoids false “integrity failed” after decode/re-encode drift.
+- **Backup restore (UI):** after restore, the app no longer **closes and reopens** the Drift database by default, so merged rows reliably appear without an empty flash.
+- **Photos:** diary backdrop, place photos, todo photo attachments, and `MediaService.pickAndAttach` use **gallery / photo picker only** — removed Documents-style “choose image file” paths for those surfaces. `file_picker` remains for backups, notification sounds, Free Time files, etc.
+
+### docs
+
+- Added `**docs/11-image-picking-and-media.md`** and linked it from **INDEX** and a **Maintainer atlas** footer across the doc set so contributors can find code locations quickly.
+
+### fix (continued)
+
+- **Critical:** Restore from backup no longer silently aborts when the system file picker backgrounds the app (previously `_phase == checking` disposed Settings).
+
+### infra / Android
+
+- Package namespace move toward `**com.lifeos`**; widget providers, storage channel, widget scheduler/refresh workers as applicable.
+- Public export path for backups/PDFs under Downloads where supported.
+
+## [0.2.0] - 2026-05-11
+
+### infrastructure
+
+- App update manifest architecture: semver compare, `minimum_supported_version`, optional HTTPS URL via `AppConfig.updateManifestUrl` (no auto-installer yet).
+- Backup envelope v2 with HMAC integrity; legacy v1 restores still supported; export to user-chosen folders (encrypted + JSON).
+- `EntitlementService` + `AppCapability` matrix; `BillingVerification` placeholder for future Play Billing.
+- Expanded `AppFeatures` for premium, AI, sync, exports, widgets, and beta flags.
+- Android `life_os/storage` channel for free-space probe; storage health dialog in Settings.
+- Release docs: version manifest example, release note template, widget architecture notes.
+
+### docs
+
+- `docs/releases/version-manifest.example.json`, `TEMPLATE.md`, `README.md`, `android-widgets.md`.
+
+## [0.1.0] - 2026-05-10
+
+### security
+
+- Hardened app lock lifecycle ordering so protected content is obscured before auth flows.
+- Tightened lock resume handling to reduce accidental route exposure.
+
+### fix
+
+- Corrected birthday "This month" filtering to exclude already passed birthdays in the current month.
+- Removed stale People analytics action entry that had low daily-use value.
+
+### ui
+
+- Improved completed todo hierarchy cards with restore and permanent-delete actions.
+- Added reversible todo completion behavior with undo snackbar.
+- Updated removed-people destructive action styling to stronger danger emphasis.
+
+### feat
+
+- Added extended respect values (`very_high`, `high`, `neutral`, `low`, `very_low`) and People respect filtering.
+- Expanded Android widget registration suite (todos, birthdays, reminders, diary, actions).
+
+### docs
+
+- Added release docs under `docs/releases/`.
+- Added release/versioning and icon tooling notes.
+
