@@ -1,8 +1,15 @@
-# Changelog
+﻿# Changelog
 
 All notable changes to this project are documented in this file.
 
 Release discipline: bump `**pubspec.yaml**` only for app version; run `.\scripts\release.ps1` for public `version.json` + changelog; update this file per release. See [docs/15-version-changelog-and-ota-tracking.md](docs/15-version-changelog-and-ota-tracking.md).
+
+## [1.0.10] - 2026-05-26 (build 51)
+
+### fix
+
+- **Widgets:** Calendar overflow on 6-row months (146dp canvas, hide glance on 6 weeks, measured row heights).
+- **Android:** Unique PendingIntent per widget — calendar opens Diary, People opens People.
 
 ## [1.0.10] - 2026-05-26 (build 50)
 

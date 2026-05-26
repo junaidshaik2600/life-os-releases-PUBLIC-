@@ -2,6 +2,6 @@
   "latest_version": "1.0.10",
   "minimum_supported_version": "1.0.3",
   "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.0.10/life-os-1.0.10.apk",
-  "apk_sha256": "ebb8c363e5f6176bb3b09a517caa47a7c984f8e664690c60c5cc4114c12215d7",
-  "changelog": "Life OS 1.0.10 (50): Calendar widget polish, overflow fix, single-task widget launch. Includes 1.0.9 watchlist, free time, and share improvements."
+  "apk_sha256": "940acdfa43664b0d54843404a9c1de1814cc5d61e7262a4df8d88305e2f60a82",
+  "changelog": "Life OS 1.0.10 (51): Calendar overflow fix; widget taps open the correct screen (Diary vs People)."
 }
