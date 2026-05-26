@@ -1,7 +1,7 @@
 {
-  "latest_version": "1.0.9",
+  "latest_version": "1.0.10",
   "minimum_supported_version": "1.0.3",
-  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.0.9/life-os-1.0.9.apk",
-  "apk_sha256": "34ac0b804208ed5fecb3f64a757008e23aeba5af875c882e43010515b47c7748",
-  "changelog": "Life OS 1.0.9 (48): Watchlist and Free time polish, diary calendar widget, structured share, backup restore with app lock, stability fixes."
+  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.0.10/life-os-1.0.10.apk",
+  "apk_sha256": "ebb8c363e5f6176bb3b09a517caa47a7c984f8e664690c60c5cc4114c12215d7",
+  "changelog": "Life OS 1.0.10 (50): Calendar widget polish, overflow fix, single-task widget launch. Includes 1.0.9 watchlist, free time, and share improvements."
 }

@@ -1,6 +1,21 @@
 ﻿# Life OS changelog
 
-<<<<<<< HEAD
+## 1.0.10 (build 50) — Calendar widget & stability
+
+**Life OS 1.0.10 (build 50)** — polished diary calendar widget, overflow fix, one app task for widget launches. OTA from 1.0.9.
+
+### Widgets
+- Diary calendar: gradient style, dynamic 5/6-week grid, today highlight, glance line, icon-only legend.
+- No overflow on home screen; scales when resized.
+
+### Android
+- Widget taps bring one Life OS task forward (no duplicate Recents cards).
+
+### Carried from 1.0.9
+- Watchlist & free time polish, structured share, backup restore with app lock.
+
+**APK:** `life-os-1.0.10.apk` · **Tag:** `v1.0.10` · **SHA256:** `ebb8c363e5f6176bb3b09a517caa47a7c984f8e664690c60c5cc4114c12215d7`
+
 ## 1.0.9 (build 48) — Stabilization & polish
 
 **Life OS 1.0.9 (build 48)** — watchlist & free time polish, diary calendar widget, structured share, stability fixes.
@@ -17,11 +32,8 @@
 ### Fixes
 - Backup restore with app lock; safer refresh and sheet lifecycle.
 
-**APK:** `life-os-1.0.9.apk` · **Tag:** `v1.0.9` · **SHA256:** `34ac0b804208ed5fecb3f64a757008e23aeba5af875c882e43010515b47c7748`
+**APK:** `life-os-1.0.9.apk` · **Tag:** `v1.0.9`
 
-
-=======
->>>>>>> 45d0f003616bd8c246c3315e00cf55a888c10935
 ## 1.0.4 (build 23) — Reactive UX & cohesion
 
 **Life OS 1.0.4 (build 23)** — polish release: screens stay in sync after edits. Recommended for anyone on 1.0.3 or earlier.
