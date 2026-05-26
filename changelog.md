@@ -1,5 +1,6 @@
 ﻿# Life OS changelog
 
+<<<<<<< HEAD
 ## 1.0.9 (build 48) — Stabilization & polish
 
 **Life OS 1.0.9 (build 48)** — watchlist & free time polish, diary calendar widget, structured share, stability fixes.
@@ -19,6 +20,8 @@
 **APK:** `life-os-1.0.9.apk` · **Tag:** `v1.0.9` · **SHA256:** `34ac0b804208ed5fecb3f64a757008e23aeba5af875c882e43010515b47c7748`
 
 
+=======
+>>>>>>> 45d0f003616bd8c246c3315e00cf55a888c10935
 ## 1.0.4 (build 23) — Reactive UX & cohesion
 
 **Life OS 1.0.4 (build 23)** — polish release: screens stay in sync after edits. Recommended for anyone on 1.0.3 or earlier.
