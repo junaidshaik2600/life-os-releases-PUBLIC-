@@ -1,7 +1,7 @@
 {
-  "latest_version": "1.0.10",
-  "minimum_supported_version": "1.0.3",
-  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.0.10/life-os-1.0.10.apk",
-  "apk_sha256": "940acdfa43664b0d54843404a9c1de1814cc5d61e7262a4df8d88305e2f60a82",
-  "changelog": "Life OS 1.0.10 (51): Calendar overflow fix; widget taps open the correct screen (Diary vs People)."
+  "latest_version": "1.1.0",
+  "build_number": 52,
+  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.1.0/life-os-1.1.0.apk",
+  "sha256": "70c90294f97fe41bb7551df644df160ce8a4e00df202a23d168cdfb3341cc8ca",
+  "release_notes": "Reminders UI fix, widget top-align, todo attachments viewer, Today tab done behavior, cab JSON import, free time image preview."
 }

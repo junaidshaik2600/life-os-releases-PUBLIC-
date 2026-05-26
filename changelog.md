@@ -2,14 +2,29 @@
 
 All notable changes to this project are documented in this file.
 
-Release discipline: bump `**pubspec.yaml**` only for app version; run `.\scripts\release.ps1` for public `version.json` + changelog; update this file per release. See [docs/15-version-changelog-and-ota-tracking.md](docs/15-version-changelog-and-ota-tracking.md).
+Release discipline: bump **`pubspec.yaml`** only for app version; run `.\scripts\release.ps1` for public `version.json` + changelog; update this file per release. See [docs/15-version-changelog-and-ota-tracking.md](docs/15-version-changelog-and-ota-tracking.md).
+
+## [1.1.0] - 2026-05-26 (build 52)
+
+### feat
+
+- **Todos:** Photo attachment thumbnails in detail sheet; tap for fullscreen viewer; attachment count chip on list cards.
+- **Free time:** In-app image preview (pinch/zoom); clearer copy for PDFs and external files.
+- **Import:** Cab memories from JSON (`cabs` key); flexible fields per row; warnings for unknown top-level keys.
+
+### fix
+
+- **Reminders:** Action row no longer overflows — Done + Snooze visible, Edit/Reschedule/Delete in menu; readable titles for URLs (e.g. YouTube Short).
+- **Widgets:** Glance list content top-aligned — less empty band above single-line widgets.
+- **Todos:** Marking done always sets parent `isDone`; completed tasks leave Today tab (open tasks only).
+- **Todos:** `setDone` with subtasks now updates parent completion state.
 
 ## [1.0.10] - 2026-05-26 (build 51)
 
 ### fix
 
-- **Widgets:** Calendar overflow on 6-row months (146dp canvas, hide glance on 6 weeks, measured row heights).
-- **Android:** Unique PendingIntent per widget — calendar opens Diary, People opens People.
+- **Widgets:** Calendar overflow on 6-row months (hide glance line, 146dp canvas, measured row heights).
+- **Android:** Unique PendingIntent per widget instance — calendar always opens Diary, not last-updated widget target.
 
 ## [1.0.10] - 2026-05-26 (build 50)
 
@@ -143,7 +158,7 @@ Phase 1 completion: branding, release foundation, OTA hardening, premium trust.
 
 ### chore
 
-- **Version 1.0.0** — single source of truth: `pubspec.yaml` `version:` only. Runtime reads semver via `**package_info_plus`** (`AppVersion`, `packageInfoProvider`); removed duplicate `AppConfig.currentVersion`. Android continues to use Flutter-injected `versionName` / `versionCode` from the same line.
+- **Version 1.0.0** — single source of truth: `pubspec.yaml` `version:` only. Runtime reads semver via **`package_info_plus`** (`AppVersion`, `packageInfoProvider`); removed duplicate `AppConfig.currentVersion`. Android continues to use Flutter-injected `versionName` / `versionCode` from the same line.
 
 ## [0.4.0] - 2026-05-14
 
@@ -156,7 +171,7 @@ Phase 1 completion: branding, release foundation, OTA hardening, premium trust.
 
 ### docs
 
-- `**docs/12-premium-billing-and-play-console.md`**: code map, where to paste IDs, Console navigation, testing and publish checklist. **INDEX** and **10-centralized-configuration** updated for billing paths.
+- **`docs/12-premium-billing-and-play-console.md`**: code map, where to paste IDs, Console navigation, testing and publish checklist. **INDEX** and **10-centralized-configuration** updated for billing paths.
 
 ## [0.3.0] - 2026-05-12
 
@@ -170,11 +185,11 @@ This release focuses on **reliable backup and restore**, **Android widgets**, **
 ### feat
 
 - Full-shell **privacy curtain** on `paused`/`hidden` while unlocked: keeps the main `PageView` (and Settings) **mounted** so restore, pickers, and other async flows complete instead of dying on `context.mounted`.
-- Android `**FLAG_SECURE`** toggle via `life_os/privacy` method channel for recents/screenshot hardening when the curtain is active.
-- `**rootShellTabRequestProvider**` and post-restore **“Open Diary”** navigation.
+- Android **`FLAG_SECURE`** toggle via `life_os/privacy` method channel for recents/screenshot hardening when the curtain is active.
+- **`rootShellTabRequestProvider`** and post-restore **“Open Diary”** navigation.
 - Restore **preview + confirm** dialog (decrypted counts, export time) before writing the database.
-- `**flutter_secure_storage`**-backed device backup key (optional path); password exports tagged `key_kind` in envelope.
-- `**post_restore_refresh**`: invalidates repository and service providers after restore (keeps the same open SQLite connection so restored data stays visible).
+- **`flutter_secure_storage`**-backed device backup key (optional path); password exports tagged `key_kind` in envelope.
+- **`post_restore_refresh`**: invalidates repository and service providers after restore (keeps the same open SQLite connection so restored data stays visible).
 - Pull-to-refresh on dashboard, diary, people, library hub, todos; `PageView` uses non-swipeable physics for stable bottom nav.
 - Life pulse / intelligence / search stack additions and widget snapshot publishing refinements (see lib and docs).
 
@@ -186,7 +201,7 @@ This release focuses on **reliable backup and restore**, **Android widgets**, **
 
 ### docs
 
-- Added `**docs/11-image-picking-and-media.md`** and linked it from **INDEX** and a **Maintainer atlas** footer across the doc set so contributors can find code locations quickly.
+- Added **`docs/11-image-picking-and-media.md`** and linked it from **INDEX** and a **Maintainer atlas** footer across the doc set so contributors can find code locations quickly.
 
 ### fix (continued)
 
@@ -194,13 +209,12 @@ This release focuses on **reliable backup and restore**, **Android widgets**, **
 
 ### infra / Android
 
-- Package namespace move toward `**com.lifeos`**; widget providers, storage channel, widget scheduler/refresh workers as applicable.
+- Package namespace move toward **`com.lifeos`**; widget providers, storage channel, widget scheduler/refresh workers as applicable.
 - Public export path for backups/PDFs under Downloads where supported.
 
 ## [0.2.0] - 2026-05-11
 
 ### infrastructure
-
 - App update manifest architecture: semver compare, `minimum_supported_version`, optional HTTPS URL via `AppConfig.updateManifestUrl` (no auto-installer yet).
 - Backup envelope v2 with HMAC integrity; legacy v1 restores still supported; export to user-chosen folders (encrypted + JSON).
 - `EntitlementService` + `AppCapability` matrix; `BillingVerification` placeholder for future Play Billing.
@@ -209,34 +223,28 @@ This release focuses on **reliable backup and restore**, **Android widgets**, **
 - Release docs: version manifest example, release note template, widget architecture notes.
 
 ### docs
-
 - `docs/releases/version-manifest.example.json`, `TEMPLATE.md`, `README.md`, `android-widgets.md`.
 
 ## [0.1.0] - 2026-05-10
 
 ### security
-
 - Hardened app lock lifecycle ordering so protected content is obscured before auth flows.
 - Tightened lock resume handling to reduce accidental route exposure.
 
 ### fix
-
 - Corrected birthday "This month" filtering to exclude already passed birthdays in the current month.
 - Removed stale People analytics action entry that had low daily-use value.
 
 ### ui
-
 - Improved completed todo hierarchy cards with restore and permanent-delete actions.
 - Added reversible todo completion behavior with undo snackbar.
 - Updated removed-people destructive action styling to stronger danger emphasis.
 
 ### feat
-
 - Added extended respect values (`very_high`, `high`, `neutral`, `low`, `very_low`) and People respect filtering.
 - Expanded Android widget registration suite (todos, birthdays, reminders, diary, actions).
 
 ### docs
-
 - Added release docs under `docs/releases/`.
 - Added release/versioning and icon tooling notes.
 
