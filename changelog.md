@@ -4,6 +4,23 @@ All notable changes to this project are documented in this file.
 
 Release discipline: bump **`pubspec.yaml`** only for app version; run `.\scripts\release.ps1` for public `version.json` + changelog; update this file per release. See [docs/15-version-changelog-and-ota-tracking.md](docs/15-version-changelog-and-ota-tracking.md).
 
+## 1.1.1 (2026-05-27) — build 53
+
+### Added
+- JSON import: per-type examples, add row, field legends (People, Places, Food, Watchlist, Dreams, Cabs)
+- Cab cards: tap to open detail, swipe to delete
+- In-repo documentation: APP-FLOW diagrams, page-reference manuals, lookup indexes
+
+### Fixed
+- Home widgets: transparent Android shell — wallpaper visible outside card (no #151A20 bars)
+- Reminders button overflow; todo attachments viewer; Today tab open-only
+- Share duplicate popup; watchlist label contrast
+- Import refresh stability
+
+### Changed
+- Widget PNG aligned to top of launcher cell (fitStart)
+
+
 ## [1.1.0] - 2026-05-26 (build 52)
 
 ### feat
