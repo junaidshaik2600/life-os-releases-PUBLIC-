@@ -4,22 +4,32 @@ All notable changes to this project are documented in this file.
 
 Release discipline: bump **`pubspec.yaml`** only for app version; run `.\scripts\release.ps1` for public `version.json` + changelog; update this file per release. See [docs/15-version-changelog-and-ota-tracking.md](docs/15-version-changelog-and-ota-tracking.md).
 
-## 1.1.1 (2026-05-27) — build 53
+## [1.1.2] - 2026-05-27 (build 54)
 
-### Added
-- JSON import: per-type examples, add row, field legends (People, Places, Food, Watchlist, Dreams, Cabs)
-- Cab cards: tap to open detail, swipe to delete
-- In-repo documentation: APP-FLOW diagrams, page-reference manuals, lookup indexes
+### fix
 
-### Fixed
-- Home widgets: transparent Android shell — wallpaper visible outside card (no #151A20 bars)
-- Reminders button overflow; todo attachments viewer; Today tab open-only
-- Share duplicate popup; watchlist label contrast
-- Import refresh stability
+- **Widgets (Option B):** Glance PNG height follows launcher cell (`OPTION_APPWIDGET_MIN_HEIGHT`); bitmap fills cell (`fitXY`) — removes outer `#151A20` letterbox bands.
+- **Widgets (layout):** Sparse body lines vertically centered in body zone; empty state uses hint + white dot row (no duplicate badge summary in accent under divider).
+- **Widgets:** Reverts hollow top-cramped look from Option A-only (`fitStart` on fixed 88dp PNG).
 
-### Changed
-- Widget PNG aligned to top of launcher cell (fitStart)
+## [1.1.1] - 2026-05-27 (build 53)
 
+### feat
+
+- **Import:** Per-type JSON examples (all supported fields), “Add row”, type selector, and field legend in Settings → Import written data.
+- **Cabs:** Tap card for detail sheet; swipe left to delete (like People).
+- **Docs:** Full in-repo documentation — app flow diagrams, page manuals, button/search/class lookup indexes.
+
+### fix
+
+- **Share:** Removed useless “Open Life OS” sheet action; reduced duplicate share popup.
+- **Watchlist:** Label chips (including “Free time”) use readable contrast colors.
+- **Widgets:** Transparent Android launcher shell (`life_os_widget_image.xml`) — wallpaper shows in outer gaps instead of `#151A20` bars; `fitStart` aligns card to top.
+- **Stability:** Safer refresh after import (reduces `_dependents.isEmpty` assertion risk).
+
+### docs
+
+- `docs/APP-FLOW.md`, `docs/DOCUMENTATION-MAP.md`, `docs/page-reference/*` — beginner and pro navigation paths.
 
 ## [1.1.0] - 2026-05-26 (build 52)
 

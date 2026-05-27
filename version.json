@@ -1,7 +1,9 @@
 {
-  "latest_version": "1.1.1",
-  "build_number": 53,
-  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.1.1/life-os-1.1.1.apk",
-  "sha256": "05d070bf8404d32b138c6e00b10fa861f7051b104f494e3ab50b09d6d08315a9",
-  "release_notes": "Transparent widget gaps; import per-type examples; cab tap/swipe; reminders/todos/share fixes."
+  "latest_version": "1.1.2",
+  "build_number": 54,
+  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.1.2/life-os-1.1.2.apk",
+  "apk_sha256": "PLACEHOLDER_AFTER_BUILD",
+  "sha256": "PLACEHOLDER_AFTER_BUILD",
+  "changelog": "Home widgets: PNG matches launcher cell height (no outer dark bands); body text centered when sparse; badge no longer duplicated in body.",
+  "release_notes": "Home widgets: PNG matches launcher cell height (no outer dark bands); body text centered when sparse; badge no longer duplicated in body."
 }
