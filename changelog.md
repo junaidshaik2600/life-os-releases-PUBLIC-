@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file.
 
 Release discipline: bump **`pubspec.yaml`** only for app version; run `.\scripts\release.ps1` for public `version.json` + changelog; update this file per release. See [docs/15-version-changelog-and-ota-tracking.md](docs/15-version-changelog-and-ota-tracking.md).
 
+## 1.1.3 (build 55) — 2026-05-27
+
+### Fixed
+- Home widgets visual pass: Birthdays/Diary/Life Pulse/Todos/Reminders support plain text body style (no forced bullet rows) for cleaner card look.
+- Diary widget now shows better hierarchy: today title in header, short summary above journal preview in body.
+- Diary widget tap now opens today's diary editor directly.
+- Life Pulse keeps count rhythm visible (todos/reminders/birthdays), including zeros.
+- Calendar widget size reduced for a cleaner home-screen footprint.
+- Diary editor section order adjusted to: Morning & routine → Dream → Short summary → Full journal.
+- Added deferred refresh notifications in Free time and Cabs save/update/delete flows to reduce lifecycle timing assertion risk (`_dependents.isEmpty` class).
+
 ## [1.1.2] - 2026-05-27 (build 54)
 
 ### fix
