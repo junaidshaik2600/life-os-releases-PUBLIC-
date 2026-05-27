@@ -4,16 +4,35 @@ All notable changes to this project are documented in this file.
 
 Release discipline: bump **`pubspec.yaml`** only for app version; run `.\scripts\release.ps1` for public `version.json` + changelog; update this file per release. See [docs/15-version-changelog-and-ota-tracking.md](docs/15-version-changelog-and-ota-tracking.md).
 
-## 1.1.3 (build 55) — 2026-05-27
+## [1.1.4] - 2026-05-27 (build 56)
 
-### Fixed
-- Home widgets visual pass: Birthdays/Diary/Life Pulse/Todos/Reminders support plain text body style (no forced bullet rows) for cleaner card look.
-- Diary widget now shows better hierarchy: today title in header, short summary above journal preview in body.
-- Diary widget tap now opens today's diary editor directly.
-- Life Pulse keeps count rhythm visible (todos/reminders/birthdays), including zeros.
-- Calendar widget size reduced for a cleaner home-screen footprint.
-- Diary editor section order adjusted to: Morning & routine → Dream → Short summary → Full journal.
-- Added deferred refresh notifications in Free time and Cabs save/update/delete flows to reduce lifecycle timing assertion risk (`_dependents.isEmpty` class).
+### feat
+
+- **Todo attachments:** Added a swipeable gallery viewer for multiple attachments so you can slide to next/previous without backing out each time.
+- **Attachment support:** Todo and Free time flows now handle image, video, audio, text, and PDF more clearly in-app (PDF with external-open fallback).
+- **People widget:** Replaced generic memory copy with this-month interaction ranking (top 3 contacts).
+
+### fix
+
+- **Life Pulse widget:** Center copy is now split into 3 balanced lines (`reminders`, `todos`, `birthdays`) for better readability on small tiles.
+- **Today todos:** Tasks completed from Today now remain visible in Today (grouped at bottom under done), matching common task-app behavior.
+- **Subtask ordering:** In task cards, unfinished steps stay on top and completed steps move below automatically.
+
+## [1.1.3] - 2026-05-27 (build 55)
+
+### fix
+
+- **Widgets (visual pass):** Birthday/Diary/Pulse/Todos/Reminders body rows support plain text mode (no forced bullet rows) to match card preview styling.
+- **Diary widget:** Header favors today's entry title; body shows short summary above journal preview (editor section order unchanged: Morning → Dream → Short summary → Full journal).
+- **Widget typography:** Bulleted body lines with accent-colored dots; peach reminder lines; P0/overdue todo lines in salmon; centered empty/hint text for Life Pulse, People, and Birthdays — matches reference home-screen cards.
+- **Life Pulse widget:** Center text uses two-line balanced copy instead of one long row for cleaner readability.
+- **People widget:** Shows this month's interaction ranking (top 3 people by diary interactions).
+- **Attachments:** Todo and Free time now support in-app viewing for image/video/audio/text; PDFs open in-app with external-open fallback.
+- **Diary widget tap:** Opens today's diary entry editor directly (`diary_today`) instead of only switching to diary tab.
+- **Life Pulse copy:** Streak stays in badge; body keeps explicit `todos · reminders · birthdays` counts including zeros.
+- **Calendar widget size:** Reduced logical and provider dimensions for a lighter home-screen footprint.
+- **Stability:** Reminders, Free time, and Cabs save **after** the dialog/sheet closes (no DB writes while the form is still open) — fixes `_dependents.isEmpty` when typing and saving.
+- **Diary editor:** Section order is Morning & routine → Dream → Short summary → Full journal (short summary directly above full journal).
 
 ## [1.1.2] - 2026-05-27 (build 54)
 

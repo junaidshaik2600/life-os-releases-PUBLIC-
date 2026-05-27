@@ -1,7 +1,7 @@
 {
-  "latest_version": "1.1.3",
-  "build_number": 55,
-  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.1.3/life-os-1.1.3.apk",
-  "sha256": "6035b6a0ae083c1aa36725aab099068c83a21f14a05cbef1f9408e2915d0cd52",
-  "release_notes": "Widget visual pass (non-bullet body style, better hierarchy), diary widget opens today's entry, calendar widget reduced, diary section order improved, and lifecycle-safe refresh hardening for reminder/free-time/cab flows."
+  "latest_version": "1.1.4",
+  "build_number": 56,
+  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.1.4/life-os-1.1.4.apk",
+  "sha256": "b50aa92b90cbab4c8f4c905edd1a558d8ffb2a7da03dd0b52ebc1ee9ae14a62f",
+  "release_notes": "Widgets: Life Pulse uses 3-line centered copy and People shows top 3 monthly contacts. Todos: done items stay visible in Today and subtasks reorder with unfinished first. Attachments: swipe gallery for multiple files with in-app image/video/audio/text support and PDF fallback."
 }
