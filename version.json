@@ -1,7 +1,8 @@
 {
-  "latest_version": "1.1.4",
-  "build_number": 56,
-  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.1.4/life-os-1.1.4.apk",
-  "sha256": "b50aa92b90cbab4c8f4c905edd1a558d8ffb2a7da03dd0b52ebc1ee9ae14a62f",
-  "release_notes": "Widgets: Life Pulse uses 3-line centered copy and People shows top 3 monthly contacts. Todos: done items stay visible in Today and subtasks reorder with unfinished first. Attachments: swipe gallery for multiple files with in-app image/video/audio/text support and PDF fallback."
+  "latest_version": "1.1.5",
+  "build_number": 57,
+  "minimum_supported_version": "1.1.0",
+  "apk_url": "https://github.com/junaidshaik2600/life-os-releases-PUBLIC-/releases/download/v1.1.5/life-os-1.1.5.apk",
+  "sha256": "2ec8e2720f928b71a0832cb63b216e760ca3272e12aceeb0197d95799283f69d",
+  "release_notes": "Life OS 1.1.5 (57): Stability trust pass, widget layout fixes, release-signed APK."
 }

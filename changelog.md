@@ -4,6 +4,24 @@ All notable changes to this project are documented in this file.
 
 Release discipline: bump **`pubspec.yaml`** only for app version; run `.\scripts\release.ps1` for public `version.json` + changelog; update this file per release. See [docs/15-version-changelog-and-ota-tracking.md](docs/15-version-changelog-and-ota-tracking.md).
 
+## [1.1.5] - 2026-05-27 (build 57)
+
+### fix
+
+- **Form stability (trust pass):** Reminders, Cabs, and Free time forms use StatefulWidget-owned controllers — save runs after modal close; fixes `_dependents.isEmpty` and disposed-controller crashes on Cancel/back.
+- **Cabs place picker:** Guards `mounted` after async place sheet before writing to controllers.
+- **Widget layout:** Birthdays show **3 names** then `+N more` (was capped at 2); Life Pulse order **todos → birthdays → reminders**; compact lists vertically centered; `+N more` overflow row on glance tiles.
+- **Diary widget badge:** Sanitizes reference tokens — no raw `[[people|…]]` syntax on home-screen tile.
+
+### test
+
+- **Trust pass:** `test/trust_pass_test.dart` + `test/backup_v3_roundtrip_test.dart` — 21/21 green.
+
+### release
+
+- **APK signing:** v1.1.5 ships **release-signed** with keystore alias `lifeos` — signer **Shaik Mohammad Junaid · Life OS**.
+- **Settings → App info:** Shows **Signed by: Shaik Mohammad Junaid · Life OS** on device (debug builds show Android Debug).
+
 ## [1.1.4] - 2026-05-27 (build 56)
 
 ### feat
